@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  ### Addition
+  config.action_mailer.default_url_options = { :host => 'https://serene-oasis-9433.herokuapp.com/' }
 end
