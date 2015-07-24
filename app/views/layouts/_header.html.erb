@@ -1,6 +1,8 @@
 <header id="main_header" class="navbar navbar-default navbar-fixed-top">
   <nav class="container">
-    <%= link_to "Visitors Parking", root_path, id: "logo", class: "navbar-brand" %>
+    <%= link_to root_path, id: "logo", class: "navbar-brand" do %>
+      <%= icon "car", class: "fa-1x" %> <span class="greyblue">Visitors</span>Parking
+    <% end %>
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li><%= link_to "Settings", edit_user_registration_path %></li>

@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>VisitorsParking</title>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Open+Sans:700italic,400,300' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= favicon_link_tag "favicon.ico" %>
@@ -9,7 +10,7 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  <div class="container-fluid">
+  <div id="header-img" class="container-fluid">
     <div class="row">
       <%= image_tag "parking_lot_management_software2.jpg", class: "img-responsive" %>
     </div>

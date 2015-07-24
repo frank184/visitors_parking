@@ -12,39 +12,68 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+$greyblue: rgba(57,124,172,1);
+
 html {
-  margin: 0;
-  overflow-y: scroll;
+  margin: 52px 0 0;
   padding: 0;
+  overflow-y: scroll;
+  font-family: 'Open Sans';
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: .15rem;
+  font-weight: 300;
+  font-size: 2em;
+}
+
+p {
+  letter-spacing: .15rem;
+  font-weight: 100;
 }
 
 #main_header {
-  background: -webkit-linear-gradient(top, rgba(255,255,255,.95) 0%,rgba(229,229,229,.95) 100%);
-  background: -moz-linear-gradient(top, rgba(255,255,255,.95) 0%,rgba(229,229,229,.95) 100%);
-  background: -ms-linear-gradient(top, rgba(255,255,255,.95) 0%,rgba(229,229,229,.95) 100%);
-  background: -o-linear-gradient(top, rgba(255,255,255,.95) 0%,rgba(229,229,229,.95) 100%);
-  background: linear-gradient(top, rgba(255,255,255,.95) 0%,rgba(229,229,229,.95) 100%);
-  border: none;
-}
-
-#main_content {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(230,230,230,1) 100%);
+  background:    -moz-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(230,230,230,1) 100%);
+  background:     -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(230,230,230,1) 100%);
+  background:      -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(230,230,230,1) 100%);
+  background:         linear-gradient(top, rgba(255,255,255,1) 0%,rgba(230,230,230,1) 100%);
+  border: 1px solid rgba(230,230,230,1);
 }
 
 #logo {
+  padding:10px 0;
+  text-transform: lowercase;
   font-weight: 700;
+  font-size: 2.7rem;
+  letter-spacing: -.05em;
 }
 
-.img
+.greyblue {
+  color: $greyblue;
+}
 
-.space {
-  height: 1000px;
+.navbar-brand {
+  &:hover {
+    .greyblue {
+      color: rgba(90,90,90,1);
+    }
+  }
+}
+
+#main_content {
+  margin-top: 50px;
+  margin-bottom: 125px;
 }
 
 footer {
@@ -58,6 +87,7 @@ footer {
     }
   }
   small {
+    font-size: 1.2rem;
     float: left;
   }
   ul {
@@ -70,17 +100,13 @@ footer {
   }
 }
 
-// Prevents effects on li tags
-.navbar-collapse.collapse {
-display: block!important;
+.btn {
+  padding: 10px 45px;
 }
 
+// Prevents effects on li tags
 .navbar-nav>li, .navbar-nav {
 float: left !important;
-}
-
-.navbar-nav.navbar-right:last-child {
-margin-right: -15px !important;
 }
 
 .navbar-right {
