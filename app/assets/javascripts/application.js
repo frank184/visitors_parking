@@ -15,3 +15,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var main = function(){
+  alert("YO");
+};
+
+$document.ready(function(){
+  main();
+});

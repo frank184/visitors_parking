@@ -21,20 +21,33 @@ html {
   margin: 0;
   overflow-y: scroll;
   padding: 0;
+}
 
-  min-height: 1000px;
+#main_header {
+  background: -webkit-linear-gradient(top, rgba(255,255,255,.95) 0%,rgba(229,229,229,.95) 100%);
+  background: -moz-linear-gradient(top, rgba(255,255,255,.95) 0%,rgba(229,229,229,.95) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,.95) 0%,rgba(229,229,229,.95) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,.95) 0%,rgba(229,229,229,.95) 100%);
+  background: linear-gradient(top, rgba(255,255,255,.95) 0%,rgba(229,229,229,.95) 100%);
+  border: none;
 }
 
 #main_content {
   margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 #logo {
   font-weight: 700;
 }
 
+.img
+
+.space {
+  height: 1000px;
+}
+
 footer {
-  margin-top: 45px;
   padding: 5px 0;
   border-top: 1px solid #eaeaea;
   color: #777;
