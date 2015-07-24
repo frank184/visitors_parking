@@ -16,3 +16,37 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+html {
+  margin: 0;
+  overflow-y: scroll;
+  padding: 0;
+}
+
+#main_content {
+  margin-top: 100px;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+  a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
