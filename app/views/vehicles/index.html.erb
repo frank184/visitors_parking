@@ -1,14 +1,14 @@
 <div class="inline-heading">
   <h1>Vehicles</h1>
-  <h3>
-    <%= link_to  new_vehicle_path, class: "pull-right" do %>
-      Add<%= icon "car" %>
+  <h4>
+    <%= link_to  new_vehicle_path, class: "bold pull-right" do %>
+      Add<%= icon "car", class: "grey" %>
     <% end %>
-  </h3>
+  </h4>
 </div>
 <hr>
 <% if @vehicles.empty? %>
-  <p>No Vehicle Registered</p>
+  <p>No Registered Vehicles</p>
 <% else %>
   <table>
     <%= @vehicles.each do |vehicle| %>

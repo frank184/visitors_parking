@@ -22,8 +22,13 @@
 @import "font-awesome";
 
 $greyblue: rgba(57,124,172,1);
+.greyblue { color: $greyblue; }
 $darkgrey: rgba(70,70,70,1);
+.darkgrey { color: $darkgrey; }
 $grey: rgba(100,100,100,1);
+.grey { color: $grey; }
+
+.bold { font-weight: 700; }
 
 html {
   margin: 50px 0 0;
@@ -99,9 +104,6 @@ footer {
 }
 
 .navbar-brand {
-  .greyblue {
-    color: $greyblue;
-  }
   &:hover {
     .greyblue {
       color: $grey
@@ -110,9 +112,6 @@ footer {
 }
 
 .brand {
-  .greyblue {
-    color: $greyblue;
-  }
   color: $grey;
   &:hover {
     color: $darkgrey;
@@ -128,7 +127,8 @@ footer {
 }
 
 .inline-heading {
-  h1 {
+
+  * {
     display: inline;
   }
 }
