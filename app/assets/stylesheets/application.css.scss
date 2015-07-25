@@ -26,9 +26,9 @@ $darkgrey: rgba(70,70,70,1);
 $grey: rgba(100,100,100,1);
 
 html {
-  transition: all 2s ease;
   margin: 50px 0 0;
   padding: 0;
+
   overflow-y: scroll;
   font-family: 'Open Sans';
   font-weight: 300;
@@ -37,7 +37,6 @@ html {
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: .15rem;
   font-weight: 300;
-  font-size: 2em;
 }
 
 p {
@@ -88,6 +87,11 @@ footer {
       margin-left: 15px;
     }
   }
+  @media screen and (max-width: 469px) {
+    ul {
+      display: none;
+    }
+  }
 }
 
 .btn {
@@ -117,13 +121,16 @@ footer {
       color: $darkgrey;
     }
   }
-  a {
-
-  }
 }
 
 .login-nav {
   font-size: 1.1em;
+}
+
+.inline-heading {
+  h1 {
+    display: inline;
+  }
 }
 
 // Prevents effects on li tags

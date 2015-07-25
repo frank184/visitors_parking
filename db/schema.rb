@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150724094835) do
+ActiveRecord::Schema.define(version: 20150724213552) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -38,4 +38,18 @@ ActiveRecord::Schema.define(version: 20150724094835) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "vehicles", force: :cascade do |t|
+    t.string   "license_plate", limit: 255
+    t.string   "colour",        limit: 255
+    t.string   "manufacturer",  limit: 255
+    t.string   "model",         limit: 255
+    t.integer  "year",          limit: 4
+    t.integer  "user_id",       limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "vehicles", ["user_id"], name: "index_vehicles_on_user_id", using: :btree
+
+  add_foreign_key "vehicles", "users"
 end
