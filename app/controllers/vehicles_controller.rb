@@ -6,22 +6,26 @@ class VehiclesController < ApplicationController
     @vehicles = Vehicle.all
   end
 
+  def show
+  end
+
   def new
     @vehicle = Vehicle.new
   end
 
-  def show
+  def create
+    @vehicle = Vehicle.new(vehicle_params)
   end
 
   def edit
   end
 
   def update
+    @vehicle.update
   end
 
   def destroy
     @vehicle.destroy
-    @vehicle.save
   end
 
   private

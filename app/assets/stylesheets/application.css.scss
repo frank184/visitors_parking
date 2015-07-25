@@ -103,6 +103,19 @@ footer {
   padding: 10px 45px;
 }
 
+.add-btn {
+    &:hover {
+      color: $darkgrey;
+      a {
+        text-decoration: none;
+        color: $darkgrey;
+      }
+      i {
+        color: $greyblue;
+      }
+    }
+}
+
 .navbar-brand {
   &:hover {
     .greyblue {
