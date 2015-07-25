@@ -1,7 +1,7 @@
 class VehiclesController < ApplicationController
   before_action :find_vehicle, only: [:show, :edit, :update, :destory]
   before_action :authenticate_user!
-  
+
   def index
     @vehicles = Vehicle.all
   end
@@ -15,6 +15,7 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
+    @vehicle.user_id = current_user
     if @vehicle.save
       redirect_to root_path
     else
