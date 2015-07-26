@@ -1,0 +1,40 @@
+<h2><%= current_user.first_name %>'s Vehicle</h2>
+<hr>
+<%= form_for @vehicle do |f| %>
+  <div class="form-group">
+    <%= f.label :license_plate %>
+    <%= content_tag(:span, @vehicle.license_plate, class: "pull-right") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :manufacturer %>
+    <%= content_tag(:span, @vehicle.manufacturer, class: "pull-right") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :model %>
+    <%= content_tag(:span, @vehicle.model, class: "pull-right") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :year %>
+    <%= content_tag(:span, @vehicle.year, class: "pull-right") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :colour %>
+    <%= content_tag(:span, @vehicle.colour, class: "pull-right") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :paid %>
+    <%= content_tag(:span, @vehicle.paid?, class: "pull-right") %>
+  </div>
+
+  <hr>
+
+  <div class="form-group">
+    <%= link_to "Back", :back, class: "btn btn-lg btn-default pull-right btn-inline" %>
+    <%= link_to "Edit", edit_vehicle_path, class: "btn btn-lg btn-primary pull-right btn-inline" %>
+  </div>
+<% end %>
