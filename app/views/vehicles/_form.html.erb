@@ -1,0 +1,43 @@
+<h2><%= yield(:title) %> a Vehicle</h2>
+<hr>
+<%= form_for @vehicle do |f| %>
+  <% if @vehicle.errors.any? %>
+    <ul class="error-messages">
+      <% @vehicle.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :license_plate %>
+    <%= f.text_field :license_plate, class: "form-control",  autofocus: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :manufacturer %>
+    <%= f.text_field :manufacturer, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :model %>
+    <%= f.text_field :model, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :year %>
+    <%= f.text_field :year, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :colour %>
+    <%= f.color_field :colour, class: "color-picker" %>
+  </div>
+
+  <hr>
+
+  <div class="form-group pull-right">
+    <%= f.submit yield(:title), class: "btn btn-lg btn-primary" %>
+    <%= link_to "Back", root_path, class: "btn btn-lg btn-default" %>
+  </div>
+<% end %>
