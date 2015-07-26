@@ -3,19 +3,25 @@ class VehiclesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @vehicles = Vehicle.all
+    if false # current_user.role.admin?
+      @vehicles = Vehicle.all
+      render '_admin'
+    else
+      @vehicles = current_user.vehicles
+      render '_user'
+    end
   end
 
   def show
   end
 
   def new
-    @vehicle = Vehicle.new
+    @vehicle = current_user.vehicles.build
   end
 
   def create
-    @vehicle = Vehicle.new(vehicle_params)
-    @vehicle.user_id = current_user
+    @vehicle = current_user.vehicles.build(vehicle_params)
+    @vehicle.user_id = current_user.id
     if @vehicle.save
       redirect_to root_path
     else
