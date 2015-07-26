@@ -1,5 +1,5 @@
 class VehiclesController < ApplicationController
-  before_action :find_vehicle, only: [:show, :edit, :update, :destory]
+  before_action :find_vehicle, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
@@ -33,14 +33,14 @@ class VehiclesController < ApplicationController
   end
 
   def update
-    if @vehicle.update
-    else
+    if @vehicle.update(vehicle_params)
+      redirect_to :back
     end
   end
 
   def destroy
     if @vehicle.destroy
-    else
+      redirect_to :back
     end
   end
 
@@ -51,6 +51,6 @@ class VehiclesController < ApplicationController
 
   private
   def vehicle_params
-    params.require(:vehicle).permit(:license_plate, :colour, :manufacturer, :model, :year)
+    params.require(:vehicle).permit(:license_plate, :colour, :manufacturer, :model, :year, :user)
   end
 end

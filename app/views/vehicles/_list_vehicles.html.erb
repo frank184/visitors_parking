@@ -12,27 +12,13 @@
 <% else %>
   <table id="list-vehicles">
     <tr>
-      <td>
-        License Plate:
-      </td>
-      <td>
-        Manufacturer:
-      </td>
-      <td>
-        Model:
-      </td>
-      <td>
-        Year:
-      </td>
-      <td>
-        Colour:
-      </td>
-      <td>
-        Paid/Unpaid
-      </td>
-      <td>
-        Owner:
-      </td>
+      <td>License Plate:</td>
+      <td>Manufacturer:</td>
+      <td>Model:</td>
+      <td>Year:</td>
+      <td>Colour:</td>
+      <td>Paid/Unpaid</td>
+      <td>Owner:</td>
     </tr>
     <% @vehicles.each do |vehicle| %>
       <tr>
@@ -42,10 +28,12 @@
         <td><%= vehicle.year %></td>
         <td><%= vehicle.colour %></td>
         <td><%= vehicle.paid? %></td>
-        <td><%= vehicle.user.email %></td>
+        <td><%= link_to vehicle.user.email, edit_user_registration_path %></td>
         <td><%= link_to "Edit", edit_vehicle_path(vehicle) %></td>
         <td><%= link_to "Show", vehicle_path(vehicle) %></td>
+        <td><%= link_to "Delete", vehicle_path(vehicle), method: :delete, data: { confirm: "Are you sure ?"} %></td>
       </tr>
     <% end %>
   </table>
+  <hr>
 <% end %>

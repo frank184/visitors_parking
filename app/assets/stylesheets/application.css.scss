@@ -76,8 +76,17 @@ p {
   width: 75%;
 }
 
+#user_province {
+  padding: 10px 5px;
+  width: 100%;
+}
+
+#cancel_account {
+}
+
 footer {
-  padding: 5px 10px;
+  padding-top: 5px;
+
   border-top: 1px solid #eaeaea;
   color: #777;
   a {
@@ -152,16 +161,15 @@ footer {
   padding: 0 0 15px 15px;
 }
 
-.color-picker {
-  display: block;
-  width: 100%;
-  height: 35px;
-}
-
 .inline-heading {
   * {
     display: inline;
   }
+}
+
+.clearfix {
+  clear: both;
+  margin-top:15px;
 }
 
 // Prevents effects on li tags

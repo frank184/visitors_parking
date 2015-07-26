@@ -2,7 +2,7 @@
   <div class="col-lg-offset-2 col-lg-8">
     <h2><%= yield(:title) =%></h2>
     <hr>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_for(@user, url: yield(:submit_path)) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="form-group">
@@ -26,8 +26,14 @@
       </div>
 
       <div class="form-group">
+        <% provinces = [["Alberta", "Alberta"],["British Columbia", "British Columbia"],["Manitoba", "Manitoba"],["New Brunswick", "New Brunswick"],["Newfoundland", "Newfoundland"],["Northwest Territories", "Northwest Territories"],["Nova Scotia", "Nova Scotia"],["Nunavut", "Nunavut"],["Ontario", "Ontario"],["Prince Edward Island", "Prince Edward Island"],["Quebec", "Quebec"],["Saskatchewan", "Saskatchewan"],["Yukon Territory", "Yukon Territory"]] %>
+        <% if user_signed_in? %>
+          <% provinces.unshift([current_user.province, current_user.province],[]) %>
+        <% else %>
+          <provinces.unshift([]) %>
+        <% end %>
         <%= f.label :province %><br />
-        <%= f.text_field :province, class: "form-control" %>
+        <%= f.select(:province, options_for_select(provinces), class: "select-dropdown") %>
       </div>
 
       <div class="form-group">
@@ -62,24 +68,26 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
 
+      <% if user_signed_in? %>
+        <div id="cancel_account" class="panel-default clearfix">
+          <div class="panel-heading">
+            <h3 class="text-center">Cancel my account</h3>
+            <%= button_to "Cancel", registration_path(resource_name),
+                class: "btn btn-lg btn-alert center-block", data: { confirm: "Are you sure?" }, method: :destroy %>
+          </div>
+        </div>
+      <% end %>
+
       <hr>
 
       <div class="form-group">
         <% if user_signed_in? %>
-          <div class="panel-default">
-            <div class="panel-heading">
-              <h3 class="text-center">Cancel my account</h3>
-              <%= button_to "Cancel", registration_path(resource_name),
-                  class: "btn btn-lg btn-alert center-block", data: { confirm: "Are you sure?" }, method: :delete %>
-            </div>
-            <hr>
-          </div>
+          <%= link_to "Back", :back, class: "btn btn-lg btn-default pull-right btn-inline" %>
         <% else %>
           <div class="btn btn-lg btn-default pull-right btn-inline">
             <%= render "devise/shared/links" %>
           </div>
         <% end %>
-
         <%= f.submit yield(:title), class: "btn btn-lg btn-primary pull-right btn-inline" %>
       </div>
 
