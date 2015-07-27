@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150726020255) do
     t.integer  "user_id",       limit: 4
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
-    t.boolean  "paid?",                     default: false
+    t.boolean  "paid",                      default: false
   end
 
   add_index "vehicles", ["user_id"], name: "index_vehicles_on_user_id", using: :btree

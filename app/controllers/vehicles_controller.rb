@@ -35,6 +35,8 @@ class VehiclesController < ApplicationController
   def update
     if @vehicle.update(vehicle_params)
       redirect_to :back
+    else
+      render 'edit'
     end
   end
 

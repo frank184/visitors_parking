@@ -1,3 +1,110 @@
 <% provide(:title, "Edit") %>
-<% provide(:submit_path, params[:id]) %>
-<%= render "full_form" %>
+<div class="row">
+  <div class="col-lg-offset-2 col-lg-8">
+    <h2><%= yield(:title) =%></h2>
+    <hr>
+    <%= form_for(@user, url: registration_path(@user)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="form-group">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, class: "form-control",  autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :street_address %><br />
+        <%= f.text_field :street_address, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :city %><br />
+        <%= f.text_field :city, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <% provinces = [["Alberta", "Alberta"],["British Columbia", "British Columbia"],["Manitoba", "Manitoba"],["New Brunswick", "New Brunswick"],["Newfoundland", "Newfoundland"],["Northwest Territories", "Northwest Territories"],["Nova Scotia", "Nova Scotia"],["Nunavut", "Nunavut"],["Ontario", "Ontario"],["Prince Edward Island", "Prince Edward Island"],["Quebec", "Quebec"],["Saskatchewan", "Saskatchewan"],["Yukon Territory", "Yukon Territory"]] %>
+        <% if user_signed_in? %>
+          <% provinces.unshift([current_user.province, current_user.province],[]) %>
+        <% else %>
+          <% provinces.unshift([]) %>
+        <% end %>
+        <%= f.label :province %><br />
+        <%= f.select(:province, options_for_select(provinces), class: "select-dropdown") %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :postal %><br />
+        <%= f.text_field :postal, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :telephone %><br />
+        <%= f.text_field :telephone, class: "form-control" %>
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+      </div>
+
+
+      <hr>
+
+      <div class="form-group">
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+        <% if @minimum_password_length %>
+        <em>Old passsword</em>
+        <% end %><br />
+        <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <hr>
+
+
+      <div class="form-group">
+        <% if user_signed_in? %>
+          <%= f.submit yield(:title), class: "btn btn-lg btn-primary" %>
+          <%= link_to "Back", :back, class: "btn btn-lg btn-default btn-inline" %>
+        <% else %>
+          <div class="btn btn-lg btn-default pull-right btn-inline">
+            <%= render "devise/shared/links" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div id="cancel_account" class="panel-default clearfix">
+        <div class="panel-heading">
+          <h3 class="text-center">Cancel my account</h3>
+          <%= button_to "Cancel", registration_path(@user),
+                class: "btn btn-lg btn-alert center-block",
+                data: { confirm: "Are you sure?" },
+                method: :delete %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

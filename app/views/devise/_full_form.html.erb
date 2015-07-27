@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-offset-2 col-lg-8">
-    <h2><%= yield(:title) =%></h2>
+    <h2><%= yield(:title) %></h2>
     <hr>
     <%= form_for(@user, url: yield(:submit_path)) do |f| %>
       <%= devise_error_messages! %>
@@ -30,7 +30,7 @@
         <% if user_signed_in? %>
           <% provinces.unshift([current_user.province, current_user.province],[]) %>
         <% else %>
-          <provinces.unshift([]) %>
+          <% provinces.unshift([]) %>
         <% end %>
         <%= f.label :province %><br />
         <%= f.select(:province, options_for_select(provinces), class: "select-dropdown") %>
