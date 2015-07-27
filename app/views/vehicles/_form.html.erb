@@ -36,8 +36,10 @@
 
   <hr>
 
-  <div class="form-group">
-    <%= link_to "Back", :back, class: "btn btn-lg btn-default pull-right btn-inline" %>
-    <%= f.submit yield(:title), class: "btn btn-lg btn-primary pull-right btn-inline" %>
+  <div class="form-group pull-right">
+    <div class="btn-group" role="group">
+      <%= link_to "Back", :back, class: "btn btn-lg btn-default" %>
+      <%= f.submit yield(:title), class: "btn btn-lg btn-primary pull-right btn-inline" %>
+    </div>
   </div>
 <% end %>

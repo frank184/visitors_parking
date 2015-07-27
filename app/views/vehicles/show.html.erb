@@ -38,8 +38,11 @@
 
   <hr>
 
-  <div class="form-group">
-    <%= link_to "Back", :back, class: "btn btn-lg btn-default pull-right btn-inline" %>
-    <%= link_to "Edit", edit_vehicle_path, class: "btn btn-lg btn-primary pull-right btn-inline" %>
+  <div class="form-group pull-right">
+    <div class="btn-group" role="group">
+      <%= link_to "Back", :back, class: "btn btn-lg btn-default" %>
+      <%= link_to "Edit", edit_vehicle_path, class: "btn btn-lg btn-primary" %>
+    </div>
   </div>
+  <%= link_to "Delete", vehicle_path(@vehicle), class: "btn btn-lg btn-default", method: :delete, data: { confirm: "Are you sure ?"} %>
 <% end %>

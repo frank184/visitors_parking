@@ -2,5 +2,6 @@
 <div class="row">
   <div class="col-lg-offset-2 col-lg-8">
     <%= render 'form' %>
+    <%= link_to "Delete", vehicle_path(@vehicle), class: "btn btn-lg btn-default", method: :delete, data: { confirm: "Are you sure ?"} %>
   </div>
 </div>

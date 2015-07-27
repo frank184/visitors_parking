@@ -42,7 +42,7 @@ class VehiclesController < ApplicationController
 
   def destroy
     if @vehicle.destroy
-      redirect_to :back
+      redirect_to root_path
     end
   end
 
