@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   POSTAL_REGEX = /\A[A-Z][0-9][A-Z] ?[0-9][A-Z][0-9]\Z/i
   validates_format_of :postal, :with => POSTAL_REGEX, :on => :create
 
-  TELEPHONE_REGEX = /\A(\+\d{1,2}\s)?\(?\d{3}\)?[ .-]\d{3}[ .-]\d{4}\Z/
+  TELEPHONE_REGEX = /\A\(?\d{3}\)?[ .-]\d{3}[ .-]\d{4}\Z/
   validates_format_of :telephone, :with => TELEPHONE_REGEX, :on => :create
 
 end
